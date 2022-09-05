@@ -18,7 +18,7 @@ object MyServer {
     implicit val executionContext = system.executionContext
 
     val route =
-      path("hello") {
+    {
         get {
           complete(HttpEntity(ContentTypes.`text/html(UTF-8)`, "<h1>Say hello to akka-http</h1>"))
         }
