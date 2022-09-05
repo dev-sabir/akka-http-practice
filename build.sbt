@@ -9,6 +9,7 @@ lazy val root = (project in file("."))
 // this will add the ability to "stage" which is required for Heroku
 enablePlugins(JavaAppPackaging)
 // this specifies which class is the main class in the package
+mainClass in Compile := Some("server.MyServer")
 val AkkaVersion = "2.6.8"
 val AkkaHttpVersion = "10.2.9"
 libraryDependencies ++= Seq(
