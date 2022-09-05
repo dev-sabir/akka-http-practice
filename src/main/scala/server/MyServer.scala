@@ -23,10 +23,16 @@ object MyServer extends Logging{
           complete(HttpEntity(ContentTypes.`text/html(UTF-8)`, "<h1>Say hello to akka-http</h1>"))
         }
       }
+    val host = "0.0.0.0"
 
-    val bindingFuture = Http().newServerAt("localhost", 8080).bind(route)
+    val port: Int = sys.env.getOrElse("PORT", "8080").toInt
 
-    println(s"Server now online. Please navigate to http://localhost:8080/hello\nPress RETURN to stop...")
+    val bindingFuture = Http().newServerAt(host, port).bind(route)
+
+
+
+
+    logger.info(s"Server now online. Please navigate to http://localhost:8080/hello\nPress RETURN to stop...")
     StdIn.readLine() // let it run until user presses return
     bindingFuture
       .flatMap(_.unbind()) // trigger unbinding from the port
