@@ -32,7 +32,7 @@ object MyServer extends Logging{
 
 
 
-    logger.info(s"Server now online. Please navigate to http://localhost:8080/hello\nPress RETURN to stop...")
+    logger.info(s"Server now online. Please navigate to http://localhost:8080/\nPress RETURN to stop...")
     StdIn.readLine() // let it run until user presses return
     bindingFuture
       .flatMap(_.unbind()) // trigger unbinding from the port
