@@ -5,9 +5,11 @@ import akka.actor.typed.scaladsl.Behaviors
 import akka.http.scaladsl.Http
 import akka.http.scaladsl.model._
 import akka.http.scaladsl.server.Directives._
+import server.logger.Logging
+
 import scala.io.StdIn
 
-object MyServer {
+object MyServer extends Logging{
 
   def main(args: Array[String]): Unit = {
 
